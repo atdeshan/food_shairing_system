@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='loginstyle.css') }}">
+</head>
+<body style="font-family:  'Poppins', sans-serif;">
+    <div class="container">
+        <div class="regform" >
+    <form action="fooddonateform.php" method="post">
+
+      <p class="logo"> <b style="color: #1b1f1d;">Food Request</b></p>
+
+      <div class="input">
+        <label for="food">Select the Category:</label>
+        <select name="meals" id="meals">
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+        </select>
+
+        <br>
+        <br>
+        
+          
+        <!-- <input type="text" id="food" name="food"> -->
+        </div>
+
+       
+
+       <div class="input">
+        <label for="foodname"> Food Name:</label>
+        <input type="text" id="foodname" name="foodname">
+        </div>
+      
+      
+        <div class="radio">
+        <label for="meal" >Meal type :</label> 
+        <br><br>
+
+        <input type="radio" name="meal" id="veg" value="veg">
+        <label for="veg" style="padding-right: 40px;">Veg</label>
+        <input type="radio" name="meal" id="Non-veg" value="Non-veg" >
+        <label for="Non-veg">Non-veg</label>
+    
+        </div>
+        <br>
+        
+        
+        <div class="input">
+        <label for="quantity">Quantity (person):</label>
+        <input type="text" id="quantity" name="quantity">
+        </div>
+        <div class="input">
+          
+      <div>
+      <label for="phoneno">PhoneNo:</label>
+      <input type="text" id="phoneno" name="phoneno">
+      </div>
+      </div>
+        
+
+        
+        
+      
+       
+       
+        </div>
+        <div class="btn">
+            <button type="submit" name="submit"> submit</button>
+     
+        </div>
+     </form>
+     </div>
+   </div>
+     
+    
+</body>
+</html>
