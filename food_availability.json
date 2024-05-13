@@ -1,0 +1,16 @@
+{
+    "abc@gmail.com": {
+        "email": "abc@gmail.com",
+        "category": "lunch",
+        "phone": "0712340232",
+        "date": "2024-01-01",
+        "time": "10:00",
+        "address": "xyz road, abc city",
+        "status": "pending",
+        "foodname": "chicken",
+        "foodtype": "nonveg",
+        "foodquantity": 2,
+        "foodprice": 120,
+        "totalprice": 240
+    }
+}

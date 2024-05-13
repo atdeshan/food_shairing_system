@@ -1,0 +1,25 @@
+{
+    "abc@gmail.com": {
+        "password": "abc",
+        "name": "abc",
+        "tp": "0712303420"
+    },
+    "pdfs@sdf.sdf": {
+        "password": "sdfss",
+        "name": "pdfs@sdf.sdf",
+        "tp": "df",
+        "usertype": "on"
+    },
+    "asfs@ds.sdf": {
+        "password": "sdfsf",
+        "name": "asfs@ds.sdf",
+        "tp": "dfs",
+        "usertype": "on"
+    },
+    "asdf@gma.sdf": {
+        "password": "sdfsdfssf",
+        "name": "asdf@gma.sdf",
+        "tp": "sdfsdfsf",
+        "usertype": "food_makers"
+    }
+}
