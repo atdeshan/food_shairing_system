@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Availability</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header-line {
+            width: 100%;
+            height: 100px;
+            background-color:rgba(190, 194, 160);
+        }
+       
+          
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            padding: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .btn-proceed {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+        .btn-proceed:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class ="header-line">
+        <header style="background-color: #0680c1;">
+            <div class="logo">Food <b style="color: white;">Donate</b></div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="{{url_for('index')}}">Home</a></li>
+                    <li><a href="{{url_for('food_availability')}}" class="active" >Foods</a></li>
+                    
+                    <li><a href="{{url_for('profile')}}" >Account</a></li>
+                </ul>
+            </nav>
+        </header>
+        <script>
+            hamburger=document.querySelector(".hamburger");
+            hamburger.onclick =function(){
+                navBar=document.querySelector(".nav-bar");
+                navBar.classList.toggle("active");
+            }
+        </script>
+    </div>
+    <h1><pre>   Food Availability</pre></h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Category</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Food Name</th>
+                <th>Food Type</th>
+                <th>Food Quantity</th>
+                <th>Food Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, food in jason_file.items() %}
+            <tr>
+                <td>{{ id }}</td>
+                <td>{{ food.email }}</td>
+                <td>{{ food.category }}</td>
+                <td>{{ food.phone }}</td>
+                <td>{{ food.date }}</td>
+                <td>{{ food.time }}</td>
+                <td>{{ food.address }}</td>
+                <td>{{ food.status }}</td>
+                <td>{{ food.foodname }}</td>
+                <td>{{ food.foodtype }}</td>
+                <td>{{ food.foodquantity }}</td>
+                <td>{{ food.foodprice }}</td>
+                <td><a href="{{ url_for('payment') }}" class="btn-proceed">Proceed</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

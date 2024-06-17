@@ -1,92 +1,100 @@
-
-body{
+body {
     /* background-color: #20cd79; */
- 
+
 
 
 }
 
 
-  
 
 
-.cover{
- width: 100%;
+
+.cover {
+    width: 100%;
     height: 500px;
-    background:url('img/profilecover2.jpg')no-repeat;
+    background: url('img/profilecover2.jpg')no-repeat;
     background-size: cover;
     display: grid;
-    place-items:center;
-    padding-top: 8rem; 
-}
-.profilebox{
+    place-items: center;
     padding-top: 8rem;
-   text-align: center;    
+}
+
+.profilebox {
+    padding-top: 8rem;
+    text-align: center;
     width: 700px;
     height: 900px;
-    margin: 20px auto ;
-    
-    background-color:white;
+    margin: 20px auto;
+
+    background-color: rgba(235, 235, 224);
     /* box-shadow:0 .5rem 1rem rgba(0,0,0.1); */
 
-    color:black;
+    color: black;
     padding: 10px 20px 20px 20px;
     font-size: 20px;
     /* border-radius: 10px ; */
-    
+
 
 }
-.info{
+
+.info {
     /* font-family: 'Times New Roman', Times, serif; */
-    
+
     text-align: left;
     padding: 10px;
 }
-.table-container{
-    padding: 0 ;
+
+.table-container {
+    padding: 0;
     margin: 20px auto 10px;
     width: 100%;
     height: auto;
     position: sticky;
-    top:0;
+    top: 0;
     /* border: 1px solid ; */
     /* box-shadow: ; */
     /* border-radius: 10px; */
 }
 
-.table{
+.table {
     width: 100%;
 
-    border-collapse:collapse;
+    border-collapse: collapse;
     border-spacing: 0px;
-    
+
 
 
 }
-th{
+
+th {
     /* position:sticky; */
-    top:0px;
+    top: 0px;
     background-color: #0680c1;
 
 
-    
+
 }
-th,td{
+
+th,
+td {
     border: 1px solid black;
     padding: 8px;
     text-align: left;
-    max-width: 50px; /* Adjust the maximum width as needed */
+    max-width: 50px;
+    /* Adjust the maximum width as needed */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 
 }
-.table-wrapper{
+
+.table-wrapper {
     max-height: 2000px;
     overflow-y: scroll;
 
 }
-.table thead tr th{
+
+.table thead tr th {
     font-size: 14px;
     font-weight: medium;
     letter-spacing: 0.35px;
@@ -94,32 +102,35 @@ th,td{
     padding: 10px;
     vertical-align: top;
 
-} 
+}
 
 
 /* for phone */
 @media (max-width: 767px) {
-    .cover{
+    .cover {
         width: auto;
-        height:auto;
-        background:url('profilecover1.jpg')no-repeat;
+        height: auto;
+        background: url('profilecover1.jpg')no-repeat;
         background-size: cover;
         display: grid;
-        place-items:center;
+        place-items: center;
         padding-top: 8rem;
-      }
-      .cover img{
+    }
+
+    .cover img {
         width: 100%;
         height: auto;
-      }
-    .profilebox{
+    }
+
+    .profilebox {
         width: 350px;
         font-size: 14px;
         height: 600px;
 
-        
+
     }
-    .table thead tr th{
+
+    .table thead tr th {
         font-size: 14px;
         font-weight: medium;
         letter-spacing: 0.35px;
@@ -127,5 +138,3 @@ th,td{
         padding: 5px;
     }
 }
-
-

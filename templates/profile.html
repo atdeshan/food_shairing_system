@@ -8,9 +8,36 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='profile.css')}}" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .header-line {
+            width: 100%;
+            height: 100px;
+            background-color:rgba(190, 194, 160);
+        }
+        .second_line{
+            width:100%;
+            height:70px;
+            background-color:white:
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 100px;
+            font-size: 28px;
+            color: var(--navfont);
+        }
+        .myprofile{
+            background-color:rgba(235, 235, 224);
+        }
+        .name{
+            font-size:30px;
+
+        }
+    </style>
 </head>
 <body>
-<header>
+
+<div class ="header-line">
+    <header style="background-color: #0680c1;">
         <div class="logo">Food <b style="color: #06C167;">Donate</b></div>
         <div class="hamburger">
             <div class="line"></div>
@@ -26,6 +53,7 @@
             </ul>
         </nav>
     </header>
+</div>
     <script>
         hamburger=document.querySelector(".hamburger");
         hamburger.onclick =function(){
@@ -33,23 +61,23 @@
             navBar.classList.toggle("active");
         }
     </script>
+    <div class="second_line"><pre>   
+<b>My account</b></pre></div>
 
+    <section class = myprofile>
     <div class="profile">
-        <section class="cover">
-            <img src="{{url_for('static',filename='img/free-food-service-arrangement-with-background-mock-up_23-2148421299.jpg.avif')}}" alt="Profile Cover Image" width='100%' height='400'> 
-        </section>
         <div class="profilebox">
             <p class="heading">
-                <img src="{{url_for('static',filename='img/user.png')}}" alt="Profile Picture" style="width:40px; height: 25px; padding-right: 10px; position: relative;">
-                Profile
+                <img src="{{url_for('static',filename='img/user.png')}}" alt="Profile Picture" style="width:150px; height: 130px; padding-right: 10px; position: relative;">
+                <div class="name">{{user_name}}</div>
             </p>
             <div class="info" style="padding-left:10px;">
-              <p>Name:{{user_name}} </p><br> <p>Email: {{user_email}}</p><br> <p>TP : {{tp}}</p>
+              <p>Full Name:{{user_name}} </p><br> <p>Email: {{user_email}}</p><br> <p>TP : {{tp}}</p>
               <br>
                <!-- <a href="#" title="Edit Profile Information" style="float: left;margin-top: 6px ;border-radius:5px; background-color: #06C167; color: white;padding-left: 10px;padding-right: 10px;">Edit</a> -->
             </div>
             <hr>
-            <p class="heading">Your Donations</p>
+            <p class="heading">My listlinings</p>
    <div class="table-container">
     
          <div class="table-wrapper">
@@ -79,5 +107,6 @@
    </div>          
         </div>
     </div>
+</section>
 </body>
 </html>

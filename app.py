@@ -1,6 +1,7 @@
 from flask import Flask, render_template,request,redirect, url_for, session
 import secrets
 import json
+import random
 
 usr_email  = ""
 usr_name = ""
@@ -30,7 +31,6 @@ def signin():
         keys = list(jason_file.keys())
         for i in keys:
             if i == username:
-                print("pakaya")
                 session['username'] = username
                 
                 if jason_file.get(i)["password"]==password:
@@ -85,22 +85,32 @@ def registration():
 def profile():
     with open("food_availability.json","r") as file:
         jason_file = json.load(file)
-        filtered_data = {email: user_data for email, user_data in jason_file.items() if email == usr_email}
+        filtered_data = {id: user_data for id, user_data in jason_file.items() if user_data['email'] == usr_email}
     return render_template('profile.html',user_email = usr_email,user_name = usr_name,tp = usr_tp,json_file = filtered_data )
 @app.route('/foodshare',methods=['GET','POST'])
 def foodshare():
     if request.method == 'POST':
+        random_number = random.randint(10000, 100000)
+
+        global usr_email
         meal = request.form['meals']
         food_item = request.form["foodname"]
         veg_non_veg = request.form["meal"]
         quantity = request.form["quantity"]
         phone_number = request.form["phoneno"]
-        print(meal,food_item,veg_non_veg,quantity,phone_number)
+        # print(meal,food_item,veg_non_veg,quantity,phone_number)
+        with open("food_availability.json","r") as file:
+            jason_file = json.load(file)
+        new_data = {random_number:{"email":usr_email,"category":meal,"phone":phone_number,"date":'',"time":'',"address":'',"status":'',"foodname":food_item,"foodtype":veg_non_veg,"foodquantity":quantity,"foodprice":'',"totalprice":'',"OPT":""}}
+        jason_file.update(new_data)
+        with open("food_availability.json","w") as file:
+            json.dump(jason_file,file)
+            
 
         if meal != '':
             return redirect(url_for('index'))
     else:
-        print("sdfsdf")
+        print("sfs")
     return render_template('foodshare.html')
     
 
@@ -110,8 +120,16 @@ def about():
 @app.route('/loginindex')
 def loginindex():
     return render_template('loginindex.html')
+@app.route('/food_availability')
+def food_availability():
+    with open("food_availability.json","r") as file:
+        jason_file = json.load(file)
+    return render_template('food_availability.html',jason_file= jason_file)
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+@app.route('/payment')
+def payment():
+    return render_template('payment.html')
 if __name__ == '__main__':
     app.run(debug=True)
