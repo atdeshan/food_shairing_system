@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='profile.css')}}" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .header-line {
+            width: 100%;
+            height: 100px;
+            background-color:rgba(190, 194, 160);
+        }
+        .second_line{
+            width:100%;
+            height:70px;
+            background-color:white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 100px;
+            font-size: 28px;
+            color: var(--navfont);
+        }
+        .myprofile{
+            background-color:rgba(235, 235, 224);
+            min-height: 1500px;
+            padding: 20px;
+        }
+        .name{
+            font-size:30px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class ="header-line">
+    <header style="background-color: #0680c1;">
+        <div class="logo">Food <b style="color: #06C167;">Donate</b></div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="{{url_for('index')}}">Home</a></li>
+                <li><a href="{{url_for('food_request')}}" >Foods Makers</a></li>
+                <li><a href="{{url_for('food_availability')}}" >Food Buyers</a></li>
+                <li><a href="{{url_for('about')}}" >About</a></li>
+                <li><a href="{{url_for('profile')}}"  class="active">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+    <script>
+        hamburger=document.querySelector(".hamburger");
+        hamburger.onclick =function(){
+            navBar=document.querySelector(".nav-bar");
+            navBar.classList.toggle("active");
+        }
+    </script>
+    <div class="second_line"><pre>   
+<b>My account</b></pre></div>
+
+    <section class = myprofile>
+    <div class="profile">
+        <div class="profilebox">
+            <p class="heading">
+                <img src="{{url_for('static',filename='img/user.png')}}" alt="Profile Picture" style="width:150px; height: 130px; padding-right: 10px; position: relative;">
+                <div class="name">{{user_name}}</div>
+            </p>
+            <div class="info" style="padding-left:10px;">
+              <p>Full Name:{{user_name}} </p><br> <p>Email: {{user_email}}</p><br> <p>TP : {{tp}}</p>
+              <br><p>User Type : {{user_type}}</p>
+               <!-- <a href="#" title="Edit Profile Information" style="float: left;margin-top: 6px ;border-radius:5px; background-color: #06C167; color: white;padding-left: 10px;padding-right: 10px;">Edit</a> -->
+            </div>
+            <hr>
+            <p class="heading">My Availability</p>
+   <div class="table-container">
+    
+         <div class="table-wrapper">
+        <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Food Name</th>
+            <th>Date</th>
+            <th>Telephone</th>
+            <th>OTP</th>
+        </tr>
+        </thead>
+        <tbody>
+            
+                {% for email, user_data in json_file.items() %}
+            <tr>
+                <td>{{ email }}</td>
+                <td>{{ user_data["foodname"] }}</td>
+                <td>{{ user_data["date"] }}</td>
+                <td>{{ user_data["tp"] }}</td>
+                <td>{{ user_data["OTP"]}}</td>
+                
+            </tr>
+                {% endfor %}
+            
+        </tbody>
+    </table>
+         </div>
+   </div>          
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

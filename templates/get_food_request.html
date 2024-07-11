@@ -10,12 +10,26 @@
 <body style="font-family:  'Poppins', sans-serif;">
     <div class="container">
         <div class="regform" >
-    <form action="/foodshare" method="post">
+    <form action="/get_food_request" method="post">
 
       <p class="logo"> <b style="color: #1b1f1d;">Food Request</b></p>
 
-      <div class="input">
-        <label for="food">Select the Category:</label>
+
+      <div class="radio">
+        <label for="request_type" >Type  :</label> 
+        <br><br>
+        <label  style="padding-right: 40px;">Request
+        <input type="radio" name="request_type" value="request">
+        </label>
+        <label >Availability  
+        <input type="radio" name="request_type" value="availability" >
+        
+       </label>
+    
+      </div>
+
+      <div class="input" style="padding-top: 20px;">
+        <label for="food" >Select the Category:</label>
         <select name="meals" id="meals">
           <option value="breakfast">Breakfast</option>
           <option value="lunch">Lunch</option>
@@ -38,12 +52,12 @@
       
       
         <div class="radio">
-        <label for="meal" >Meal type :</label> 
+        <label for="veg_nonveg" >Meal type :</label> 
         <br><br>
 
-        <input type="radio" name="meal" id="veg" value="veg">
+        <input type="radio" name="veg_nonveg" id="veg" value="veg">
         <label for="veg" style="padding-right: 40px;">Veg</label>
-        <input type="radio" name="meal" id="Non-veg" value="Non-veg" >
+        <input type="radio" name="veg_nonveg" id="Non-veg" value="Non-veg" >
         <label for="Non-veg">Non-veg</label>
     
         </div>
@@ -54,13 +68,22 @@
         <label for="quantity">Quantity (person):</label>
         <input type="text" id="quantity" name="quantity">
         </div>
+
+
+
+        <div class="input">
+          <label for="unit_price">Unit Price</label>
+          <input type="text" id="unit_price" name="unit_price">
+          </div>
+
+
         <div class="input">
           
-      <div>
-      <label for="phoneno">PhoneNo:</label>
-      <input type="text" id="phoneno" name="phoneno">
-      </div>
-      </div>
+        <!-- <div> -->
+        <label for="phoneno">PhoneNo:</label>
+        <input type="text" id="phoneno" name="phoneno">
+        </div>
+        </div>
         
 
         

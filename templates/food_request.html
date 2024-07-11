@@ -81,7 +81,7 @@
             }
         </script>
     </div>
-    <h1><pre>   Food Available For Customers</pre></h1>
+    <h1><pre>   Food Request For Food Makers</pre></h1>
     <table border="1">
         <thead>
             <tr>
@@ -90,7 +90,6 @@
                 <th>Category</th>
                 <th>Phone</th>
                 <th>Date</th>
-                <th>Time</th>
                 <th>Status</th>
                 <th>Food Name</th>
                 <th>Food Type</th>
@@ -107,13 +106,13 @@
                 <td>{{ food.category }}</td>
                 <td>{{ food.phone }}</td>
                 <td>{{ food.date }}</td>
-                <td>{{ food.time }}</td>
                 <td>{{ food.status }}</td>
                 <td>{{ food.foodname }}</td>
                 <td>{{ food.foodtype }}</td>
                 <td>{{ food.foodquantity }}</td>
                 <td>{{ food.foodprice }}</td>
-                <td><a href="{{url_for('payment',id = id)}}" class="btn-proceed">Buy</a></td>
+                <td><a href="{{ url_for('update_table',id=id) }}" class="btn-proceed">Proceed</a></td>
+
             </tr>
             {% endfor %}
         </tbody>
